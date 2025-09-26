@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon</title>
+  <style>
+
+    @font-face {
+        font-family: Nelsond;
+        src: url(Nelsond.ttf);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Nelsond;
+      background-image: url(background-image.jpg);
+       background-size: cover;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+
+    }
+    .container {
+      max-width: 600px;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #ffffff;
+    }
+    .email-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    input[type="email"] {
+      padding: 12px 15px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      width: 250px;
+      font-size: 1rem;
+      font-family: Nelsond;
+    }
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      background: #243c6b;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-family: Nelsond;
+    }
+    button:hover {
+      background: #5d84bc;
+    }
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Something awesome is coming.</h1>
+    <p>We're working hard behind the scenes. Be the first to know when we launch.</p>
+    
+    <form class="email-form" id="subscribe-form">
+  <input type="email" id="email" placeholder="Enter your email" required>
+  <button type="submit">Notify Me</button>
+</form>
+    
+
+    <div class="footer">
+      &copy; 2025 Erikas Petrauskas. All rights reserved (For portfolio, etc Upwork).
+    </div>
+  </div>
+</body>
+
+
+<script>
+  const form = document.getElementById("subscribe-form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+
+    const response = await fetch("http://localhost:3000/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email })
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      // Redirect to a success page
+      window.location.href = "/success.html";
+    } else {
+      // Redirect to an error page or show error
+      window.location.href = "/error.html?message=" + encodeURIComponent(result.error || "Unknown error");
+    }
+  });
+</script>
+</html>

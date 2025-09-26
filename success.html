@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon</title>
+  <style>
+
+    @font-face {
+        font-family: Nelsond;
+        src: url(Nelsond.ttf);
+    }
+    /* Reset + fonts */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Nelsond;
+      background-image: url(background-image.jpg);
+       background-size: cover;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+
+    }
+    .container {
+      max-width: 600px;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+    .email-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    input[type="email"] {
+      padding: 12px 15px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      width: 250px;
+      font-size: 1rem;
+      font-family: Nelsond;
+    }
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      background: #243c6b;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-family: Nelsond;
+    }
+    button:hover {
+      background: #5d84bc;
+    }
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+  body {
+    background-attachment: scroll;  /* disables fixed on mobile (prevents weird zoom/cutoff) */
+    background-size: cover;
+    background-position: center;
+  }
+}
+  </style>
+</head>
+<body>
+    <div class="container">
+  <h1>Thank you for subscribing!</h1>
+  <p>You will be the first to receive any updates.</p>
+  <div class="footer">
+      &copy; 2025 Erikas Petrauskas. All rights reserved (For portfolio, etc Upwork).
+    </div>
+  </div>
+  </div>
+</body>
+</html>
